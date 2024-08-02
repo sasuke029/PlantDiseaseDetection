@@ -1,0 +1,90 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+{% block body %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}🍂</title>
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+    <script src="https://kit.fontawesome.com/7d59b40267.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+   
+  {% if error %}
+  <button onclick="window.history.back()" class="btn btn-link">
+    <i ></i> Predict Again
+  </button>  
+  <p style="color: red;">{{ error }}</p>
+  {% endif%}
+  
+    <div class="container1">
+        <div class="card">
+            <div class="card-header text-center text-white">
+            
+                 <h1 class="display-4"><b>{{title}}🍂</b></h1>
+            </div>
+
+            <div class="card-body text-center">
+                <div class="p-3 bg-white shadow rounded-lg" style="width: 30%; display: inline-block;">
+                    <img src="{{image_url}}" width="250" height="250">
+                </div>
+                {% if pred != 0 %}
+                <h4>Confidence:{{confidence|floatformat:2}}</h4>
+                {% endif %}
+            </div>
+
+            <div>
+                <button onclick="window.history.back()" class="btn btn-link">
+                <i ></i> Predict Again</button>
+            </div>
+
+            <div class="card-body">
+                <br>
+                <br>
+                <h5><b>Brief Description:</b></h5>
+                <p>{{ desc }}</p>
+            </div>
+
+            <!-- <div class="card-body">
+                <h5><b>
+                        {% if pred in special_values %}
+                        Benefits:
+                        {% else %}
+                        Prevent This Plant Disease By follow below steps:
+                        {% endif %}
+                    </b></h5>
+                <p>{{ prevent }}</p>
+            </div>
+
+            {% if pred != 0 %}
+            <div class="card-body text-center">
+                <h5><b>
+                        {% if pred in special_values %}
+                        Fertilizer:
+                        {% else %}
+                        Supplements:
+                        {% endif %}
+                    </b></h5>
+                <br>
+                <img src="{{simage}}" width="300" height="350">
+                <br>
+                <br>
+                <h6>{{ sname }}</h6>
+                <a target="_blank" href="{{ buy_link }}"><button type="button" class="btn btn-success">Buy
+                        Product</button></a>
+            </div>
+            {% endif %} -->
+
+        </div>
+    </div>
+  </body>
+</html>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+{% endblock body %}

@@ -1,0 +1,66 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% load static %}
+{% block body %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Disease</title>
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+</head>
+<body>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {%include 'authentication/messages.html'%}
+<div><button class ="logout"><a href ="{% url 'logout' %}">Logout</a></button></div>
+    <div class="container1">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 class="card-title"><b>🍀 AI Engine 🍀</b></h3>
+                <p class="lead">Let AI Engine Help You To Detect Disease</p>
+            </div>
+            <div class="card-body">
+                <h5><b>Why is it necessary to detect disease in plants?</b></h5>
+                <p>
+                    Plant diseases affect the growth of their respective species. In addition, some research gaps are identified from which to obtain greater transparency for detecting diseases in plants, even before their symptoms appear clearly. Diagnosis is one of the most important aspects of a plant pathologist's training. Without proper identification of the disease and the disease-causing agent, disease control measures can be a waste of time and money and can lead to further plant losses. Proper disease diagnosis is necessary.
+                </p>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'submit' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="actual-btn">Upload Image</label>
+                        <input type="file" id="actual-btn" class="form-control" name="image" accept="image/*" required>
+                        <span id="file-chosen" class="form-text text-muted">No file chosen</span>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                </form>
+                <p class="text-muted mt-4">Please upload the image.</p>
+            </div>
+        </div>
+    </div>
+   
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    })
+</script>
+</body>
+</html>
+
+{% endblock body %}
+
+
+
+
+
+
+
+

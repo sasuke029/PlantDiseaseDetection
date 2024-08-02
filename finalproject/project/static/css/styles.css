@@ -1,0 +1,311 @@
+
+
+
+
+
+
+
+
+
+/* styles.css */
+
+/*** Google font - Poppins ***/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --clr-white: #fff;
+    --clr-black: #000;
+    --clr-border: #ccc;
+    --clr-link: #efefef;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('../images/Image.jpg') center/cover fixed;
+    position: relative;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('../images/Image.jpg') center/cover fixed;
+    position: relative;
+}
+
+.container {
+    width: 400px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(8px);
+}
+
+.container1 {
+    width: 700px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(8px);
+}
+
+.card {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.8); /* Lighter background for the card */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Make the card width 100% */
+    max-width: 600px; /* Set a maximum width for the card */
+    margin: auto; /* Center the card horizontally */
+    padding: 20px;
+    text-align: left; /* Align text to the left within the card */
+}
+
+.card-header {
+    /* background-color: var(--clr-white);
+    border-bottom: 1px solid var(--clr-border); */
+    padding: 15px;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgb(4, 54, 4);
+}
+
+.card-body {
+    padding: 20px;
+    color: var(--clr-black);
+    width: 100%; /* Set the width of the card-body to 100% */
+    max-width: 100%; /* Ensure the card-body can expand to full width if needed */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form h2{
+    font-size: 2rem;
+    color: var(--clr-white);
+    margin-bottom: 20px;
+}
+
+form h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(4, 54, 4); /* Green color for the heading */
+    margin-bottom: 20px; /* Added margin bottom for separation */
+}
+
+form p {
+    margin-bottom: 20px;
+    line-height: 1.6; /* Increased line height for better readability */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--clr-black);
+    font-size: 1rem;
+    border-bottom: 2px solid var(--clr-border);
+    transition: border-bottom-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-bottom-color: var(--clr-black);
+}
+
+.input-field{
+    position: relative;
+    margin: 15px;
+    border-bottom: 2px solid var(--clr-border);
+}
+
+.input-field input{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--clr-white);
+    font-size: 1rem;
+}
+
+.input-field label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: var(--clr-white);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label{
+    transform: translateY(-120%);
+    font-size: 0.8rem;
+    top: 10px;
+}
+
+.password-options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0 35px 0;
+    color: var(--clr-white);
+}
+
+.password-options label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#remember{
+    accent-color: var(--clr-white);
+    cursor: pointer;
+}
+
+.password-options label p{
+    margin-left: 8px;
+}
+
+.container a{
+    color: var(--clr-link);
+    text-decoration: none;
+}
+
+.container a:hover{
+    text-decoration: underline;
+}
+
+button{
+    background: var(--clr-white);
+    color: var(--clr-black);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 15px;
+    
+}
+
+
+button:hover{
+    background: rgba(255, 255, 255, 0.15);
+    color: rgb(41, 207, 116);
+    border-color: var(--clr-white);
+}
+
+button:active{
+    transform: scale(0.95);
+}
+
+.account-options{
+    text-align: center;
+    margin-top: 30px;
+    color: var(--clr-white);
+}
+
+.btn-success {
+    background-color: var(--clr-black);
+    color: rgb(41, 207, 116);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: rgb(41, 207, 116);
+    color: var(--clr-black);
+    border-color: var(--clr-black); 
+}
+
+.btn-success:active {
+    transform: scale(0.95);
+}
+small.float-right.py-3.showPasswordToggle{
+    float:right;
+    color:var(--clr-white);
+    cursor: pointer;
+}
+small.float-right.py-3.showPasswordToggles{
+    float:right;
+    color:var(--clr-white);
+    cursor: pointer;
+
+}
+button.btn.btn-link {
+    float: left;
+}
+
+.invalid-feedback {
+    color:var(--clr-white);
+}
+.col.mx-auto {
+    position: relative;
+    /* align-items: center; */
+    display: -webkit-inline-box;
+}
+img {
+    border: rgb(41, 207, 116)
+;
+    border-style: solid;
+    border-radius: 45px;
+    margin-left: 110;
+}
+.row {
+    align-content: center;
+}
+.row.mb-5.text-center.text-white {
+    color: whitesmoke;
+}
+
+button.logout{
+    left: 1000px;
+    margin-bottom: 650;
+    position: relative;
+}
+.logout a{
+    text-decoration: none;
+
+}

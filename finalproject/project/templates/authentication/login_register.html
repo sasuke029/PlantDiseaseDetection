@@ -1,0 +1,94 @@
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{%static 'css/styles.css'%}">
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {%include 'authentication/messages.html'%}
+    {% if page == "login" %}
+
+    <div class="container">
+
+        <form method="post">
+              {%csrf_token%}
+            <h2>Login</h2>
+            <div class="input-field">
+                <input type="text" name="username" id="usernameField"  value="{{fieldValues.username}}" required>
+                <label for="">Enter your username</label>
+            </div>
+            <div class="invalid_feedback invalid-feedback" style="display:none">
+            </div>
+            <p class="text-sm text-success usernameSuccessOutput"></p>
+
+            <div class="input-field">
+                <input type="password" name="password" id="passwordField" required>
+                <label for="">Enter your password</label>
+                <small class="float-right py-3 showPasswordToggle">SHOW</small>
+
+            </div>
+            {% comment %} <div class="password-options">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Remember Me</p>
+                </label>
+                <a href="#">Forgot Password</a>
+            </div> {% endcomment %}
+            <button type="submit" class="btn btn-block btn-primary submit-btn">Login</button>
+            <div class="account-options">
+                <p>Don't have an account? <a href="{%url  'register'%}">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+
+{%else%}
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <div class="container">
+        <form action="#" method="post">
+            {%csrf_token%}
+            <h2>Register</h2>
+            <div class="input-field">
+                <input type="text" name="username" id="usernameField"  value="{{fieldValues.username}}" required>
+                <label for="">Enter your name</label>
+            </div>
+            <div class="invalid_feedback invalid-feedback" style="display:none">
+            </div>
+            <p class="text-sm text-success usernameSuccessOutput"></p>
+
+            <div class="input-field">
+                <input type="email" name="email" value="{{fieldValues.email}}" id="emailField" required>
+                <label for="">Enter your email</label>
+            </div>
+            <div class="emailFeedBackArea invalid-feedback" style="display:none">
+            </div>
+            <p class="text-sm text-success usernameSuccessOutput"></p>
+
+            <div class="input-field">
+                <input type="password" name="password" id="passwordField" />
+                <label for="">Enter your password</label>
+                <small class="float-right py-3 showPasswordToggle">SHOW</small>
+
+            </div>
+            <div class="input-field">
+                <input type="password" name="password1"  id="passwordField1" />
+                <label for="">Enter your password again</label>
+                <small class="float-right py-3 showPasswordToggles">SHOW</small>
+            </div>
+            <div class="passwordInvalidarea invalid-feedback" style="display:none">
+            </div>
+
+            <button type="submit" class="btn btn-block btn-primary submit-btn" >Register</button>
+            <div class="account-options">
+                <p>Already have an account? <a href="{% url 'login'%}">Login</a></p>
+            </div>
+        </form>
+      </div>
+  {%endif%}
+  <script src={%static 'js/register.js'%}></script>
+
+{% endblock content %}

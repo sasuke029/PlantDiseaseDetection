@@ -1,0 +1,27 @@
+{% comment %} {% if error %}
+<button onclick="window.history.back()" class="btn btn-link">
+  <i class="fa-solid fa-arrow-left"></i> Back
+</button>  
+<p style="color: red;">{{ error }}</p>
+{% endif%} {% endcomment %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        {% if error %}
+        <button onclick="window.history.back()" class="btn btn-link">
+            <i></i>Predict Again
+        </button>
+        <p style="color: white;">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
